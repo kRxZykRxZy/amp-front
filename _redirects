@@ -1,0 +1,2 @@
+/users/* /@:splat 301
+/.well-known/change-password /settings 301

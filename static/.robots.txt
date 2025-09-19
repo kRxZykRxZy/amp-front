@@ -1,0 +1,15 @@
+# AI has taken over the world. To stop AmpMod from being invaded
+# by evil bots, we have to tell them not to index some pages.
+
+User-agent: *
+Disallow: /banned/
+Disallow: /error/
+Disallow: /settings
+Disallow: /testpage
+Disallow: /testpage/
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Bytedance
+Disallow: /
