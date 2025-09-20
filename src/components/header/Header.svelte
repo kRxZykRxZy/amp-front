@@ -39,7 +39,7 @@
 
     async function logIn() {
         // Implement your login logic here
-        const res = await fetch(`https://corsproxy.io/?url=https://ampmod-api.onrender.com/users/${loginUsername}/login`, {
+        const res = await fetch(`https://ampmod-api.onrender.com/users/${loginUsername}/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -15,22 +15,36 @@ if (typeof window !== 'undefined') {
     (async () => {
       try {
         const res = await fetch('https://ampmod-api.onrender.com/session', {
-          credentials: 'include'
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ apiToken: storedToken })
         });
 
+        const data = await res.json(); // ✅ read the body only once
+
         if (res.ok) {
-          const data = await res.json();
+          // Successful session
           isLoggedIn.set(true);
           username.set(data.username);
-          console.log(data);
+          if (data.banned) isBanned.set(true);
+          console.log('Session data:', data);
         } else {
+          // Session invalid or expired
           localStorage.removeItem('sessionToken');
           sessionToken.set('');
+          isLoggedIn.set(false);
+          isBanned.set(false);
+          alert(data.error || 'Session invalid, please log in again.');
         }
       } catch (err) {
         console.error('Session fetch failed:', err);
         localStorage.removeItem('sessionToken');
         sessionToken.set('');
+        isLoggedIn.set(false);
+        isBanned.set(false);
+        alert('Failed to verify session. Please try again later.');
       }
     })();
   }
