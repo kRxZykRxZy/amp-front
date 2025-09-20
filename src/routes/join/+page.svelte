@@ -197,7 +197,7 @@
       showMessageBox('You must agree to the Terms of Use and Privacy Policy.');
       return;
     }
-    const res = await fetch(`https://ampmod-api.onrender.com/users/${username}/create`, {
+    const res = await fetch(`https://corsproxy.io/?url=https://ampmod-api.onrender.com/users/${username}/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
