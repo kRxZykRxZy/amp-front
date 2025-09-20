@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite",
 		"build": "npm install --save-optional @rollup/rollup-linux-x64-gnu && vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
